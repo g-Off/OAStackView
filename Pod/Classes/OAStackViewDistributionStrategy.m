@@ -210,9 +210,9 @@
   }
   
   CGFloat multiplier = 1;
-  if (self.stackView.axis == UILayoutConstraintAxisHorizontal) {
+  if (self.stackView.axis == UILayoutConstraintAxisHorizontal && otherView.intrinsicContentSize.width > 0) {
     multiplier = view.intrinsicContentSize.width / otherView.intrinsicContentSize.width;
-  } else {
+  } else if (self.stackView.axis == UILayoutConstraintAxisVertical && otherView.intrinsicContentSize.height > 0) {
     multiplier = view.intrinsicContentSize.height / otherView.intrinsicContentSize.height;
   }
 
